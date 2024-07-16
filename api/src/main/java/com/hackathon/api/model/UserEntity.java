@@ -10,7 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 @Setter
 @EqualsAndHashCode(of = "id")
-public class User {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
