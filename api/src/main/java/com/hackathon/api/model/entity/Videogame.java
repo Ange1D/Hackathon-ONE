@@ -1,7 +1,6 @@
 package com.hackathon.api.model.entity;
 
 import jakarta.persistence.*;
-import jdk.jshell.Snippet;
 import lombok.*;
 
 import java.io.Serializable;

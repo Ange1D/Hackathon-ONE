@@ -19,7 +19,7 @@ public class VideogameController {
     @Autowired
     private IVideogameService videogameService;
 
-    @GetMapping("videogames")
+    @GetMapping("/videogames")
     public ResponseEntity<?> showAll() {
         List<Videogame> getList = videogameService.listAll();
         if (getList == null) {
@@ -38,7 +38,7 @@ public class VideogameController {
                 , HttpStatus.OK);
     }
     
-    @PostMapping("videogame")
+    @PostMapping("/videogame")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> create(@RequestBody VideogameDto videogameDto) {
         Videogame videogameSave = null;

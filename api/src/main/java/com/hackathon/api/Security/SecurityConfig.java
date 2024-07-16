@@ -31,6 +31,8 @@ public class SecurityConfig {
         jwtAuthenticationFilter.setAuthenticationManager(authenticationManager);
 
         return httpSecurity
+                .csrf(csrf -> csrf.disable()
+                )
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/hello").permitAll()
                         .anyRequest().authenticated()

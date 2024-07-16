@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hackathon.api.Security.jwt.JwtUtils;
-import com.hackathon.api.model.UserEntity;
+import com.hackathon.api.model.entity.UserEntity;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -27,6 +27,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     private JwtUtils jwtUtils;
 
     public JwtAuthenticationFilter(JwtUtils jwtUtils){
+
         this.jwtUtils = jwtUtils;
     }
 
@@ -51,7 +52,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         }
 
         UsernamePasswordAuthenticationToken authenticationToken;
-        authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
+        authenticationToken = new UsernamePasswordAuthenticationToken(userEntity.getUsername(), userEntity.getPassword());
 
         return getAuthenticationManager().authenticate(authenticationToken);
     }
