@@ -1,0 +1,48 @@
+.hero-bg{
+    position: absolute;
+    z-index: -1;
+}
+
+.hero-front{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (max-width: 640px) {
+    /* small screen */
+    .hero{
+        height: 24rem;
+    }
+
+    .hero-bg{
+        height: 24rem;
+        opacity: 70%;
+    }
+    
+    .hero-front{
+        display: flex;
+        flex-flow: column;
+        height: 24rem;
+        justify-content: center;
+        align-items: center;
+    }
+}  
+
+@media (641px <= width <= 768px) {
+    /* medium screen */
+}
+
+@media (769px <= width <= 1024px) {
+    /* large screen */
+}  
+
+@media (1025px <= width <= 1280px) {
+    /* extra large screen */
+}  
+
+@media (1281px <= width <= 1536px) {
+    /* 2xl screen */
+}
