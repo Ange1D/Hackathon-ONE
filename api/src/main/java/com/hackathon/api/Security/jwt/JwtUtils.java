@@ -20,7 +20,7 @@ public class JwtUtils {
     @Value("${jwt.secret.key}")
     private String secretKey;
 
-    @Value("${jwt.time.expiration}")
+    @Value("${jwt.time.expiretion}")
     private String timeExpiration;
 
     //generamos el token de accseso
@@ -76,7 +76,7 @@ public class JwtUtils {
 
 
     //Obtener el username del token
-    public String getUsetnameFromToken(String token){
+    public String getUsernameFromToken(String token){
         return getClaim(token, Claims::getSubject);
     }
 

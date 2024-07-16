@@ -2,6 +2,7 @@ package com.hackathon.api.Security;
 
 
 import com.hackathon.api.Security.Filters.JwtAuthenticationFilter;
+import com.hackathon.api.Security.Filters.JwtAuthorizationFilter;
 import com.hackathon.api.Security.jwt.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -14,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 public class SecurityConfig {
@@ -24,6 +26,9 @@ public class SecurityConfig {
     @Autowired
     JwtUtils jwtUtils;
 
+    @Autowired
+    JwtAuthorizationFilter jwtAuthorizationFilter;
+
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, AuthenticationManager authenticationManager) throws Exception {
 
@@ -31,7 +36,10 @@ public class SecurityConfig {
         jwtAuthenticationFilter.setAuthenticationManager(authenticationManager);
 
         return httpSecurity
+                .csrf(csrf -> csrf.disable()
+                )
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/v1/**").permitAll()
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                         .requestMatchers("/hello").permitAll()
                         .anyRequest().authenticated()
@@ -40,6 +48,7 @@ public class SecurityConfig {
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
                 .addFilter(jwtAuthenticationFilter)
+                .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 

@@ -1,7 +1,7 @@
-package com.hackathon.api.Service;
+package com.hackathon.api.Security;
 
-import com.hackathon.api.Repositories.UserRepository;
-import com.hackathon.api.model.UserEntity;
+import com.hackathon.api.model.dao.UserDao;
+import com.hackathon.api.model.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,7 +18,7 @@ import java.util.Collections;
 public class UserDetailsImpl implements UserDetailsService {
 
     @Autowired
-    UserRepository userRepository;
+    UserDao userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
