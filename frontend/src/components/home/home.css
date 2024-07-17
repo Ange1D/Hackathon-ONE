@@ -1,6 +1,10 @@
 .hero-bg{
     position: absolute;
     z-index: -1;
+    height: 24rem;
+    object-fit: cover;
+    width: 100vw;
+    opacity: 60%;
 }
 
 .hero-front{
@@ -8,27 +12,12 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    height: 24rem;
 }
 
 
 @media (max-width: 640px) {
     /* small screen */
-    .hero{
-        height: 24rem;
-    }
-
-    .hero-bg{
-        height: 24rem;
-        opacity: 70%;
-    }
-    
-    .hero-front{
-        display: flex;
-        flex-flow: column;
-        height: 24rem;
-        justify-content: center;
-        align-items: center;
-    }
 }  
 
 @media (641px <= width <= 768px) {
