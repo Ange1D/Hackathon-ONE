@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
@@ -28,12 +29,11 @@ public class UserController {
 
     @PostMapping("/createUser")
     public ResponseEntity<?> createUser(@RequestBody UserDto userDto){
-        UserEntity userEntity = null;
         try{
-            userEntity = user.save(userDto);
+            UserEntity userEntity = user.save(userDto);
             return new ResponseEntity<>(
                     MessageResponse.builder()
-                            .message("Save succes")
+                            .message("User saved successfully")
                             .object(UserDto.builder()
                                     .id(userEntity.getId())
                                     .email(userEntity.getEmail())
@@ -47,7 +47,7 @@ public class UserController {
         }catch (DataAccessException e){
             return new ResponseEntity<>(
                     MessageResponse.builder()
-                            .message(e.getMessage())
+                            .message("Error saving user: " + e.getMessage())
                             .object(null)
                             .build()
                     , HttpStatus.METHOD_NOT_ALLOWED

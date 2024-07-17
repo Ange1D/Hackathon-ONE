@@ -6,6 +6,7 @@ import com.hackathon.api.model.dao.UserDao;
 import com.hackathon.api.model.dto.UserDto;
 import com.hackathon.api.model.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,13 +15,15 @@ public class UserImpl implements IUserService {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public UserEntity save(UserDto userDto) {
         UserEntity userEntity = UserEntity.builder()
                 .email(userDto.getEmail())
                 .username(userDto.getUsername())
-                .password(userDto.getPassword())
+                .password(passwordEncoder.encode(userDto.getPassword()))
                 .role(Role.valueOf(userDto.getRole().name()))
                 .build();
         return userDao.save(userEntity);
