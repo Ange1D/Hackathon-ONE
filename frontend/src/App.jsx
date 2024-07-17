@@ -1,5 +1,6 @@
 import './App.css'
 import Home from './components/home'
+import Footer from './components/footer'
 
 function App() {
 
@@ -7,7 +8,7 @@ function App() {
     <>
       Nav
       <Home/>
-      Footer
+      <Footer/>
     </>
   )
 }
