@@ -1,6 +1,5 @@
 package com.hackathon.api.Security;
 
-
 import com.hackathon.api.Security.Filters.JwtAuthenticationFilter;
 import com.hackathon.api.Security.Filters.JwtAuthorizationFilter;
 import com.hackathon.api.Security.jwt.JwtUtils;
@@ -21,23 +20,22 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     @Autowired
-    UserDetailsService userDetailsService;
+    private UserDetailsService userDetailsService;
 
     @Autowired
-    JwtUtils jwtUtils;
+    private JwtUtils jwtUtils;
 
     @Autowired
-    JwtAuthorizationFilter jwtAuthorizationFilter;
+    private JwtAuthorizationFilter jwtAuthorizationFilter;
 
     @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, AuthenticationManager authenticationManager) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, AuthenticationManager authenticationManager) throws Exception {
 
         JwtAuthenticationFilter jwtAuthenticationFilter = new JwtAuthenticationFilter(jwtUtils);
         jwtAuthenticationFilter.setAuthenticationManager(authenticationManager);
 
         return httpSecurity
-                .csrf(csrf -> csrf.disable()
-                )
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/v1/**").permitAll()
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
@@ -53,15 +51,16 @@ public class SecurityConfig {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity httpSecurity) throws Exception {
-        AuthenticationManagerBuilder authenticationManagerBuilder = httpSecurity.getSharedObject(AuthenticationManagerBuilder.class );
-        authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+        AuthenticationManagerBuilder authenticationManagerBuilder =
+                httpSecurity.getSharedObject(AuthenticationManagerBuilder.class);
+        authenticationManagerBuilder.userDetailsService(userDetailsService)
+                .passwordEncoder(passwordEncoder());
         return authenticationManagerBuilder.build();
     }
-
 }

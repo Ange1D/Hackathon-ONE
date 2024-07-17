@@ -2,6 +2,7 @@ package com.hackathon.api;
 
 import com.hackathon.api.Service.impl.UserImpl;
 import com.hackathon.api.model.Role;
+import com.hackathon.api.model.dao.UserDao;
 import com.hackathon.api.model.dto.UserDto;
 import com.hackathon.api.model.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
