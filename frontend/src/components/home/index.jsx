@@ -20,7 +20,7 @@ const Home = () => {
                 <img src="./images/section1-img.png" alt="league-of-legends-image" />
                 <div>
                     <h3>
-                        BUILT FOR NOOBS AND<br/>PROS
+                        BUILT FOR NOOBS AND PROS
                     </h3>
                     <p>Leeroy is made for players of all skill levels</p>
                 </div>
@@ -28,9 +28,11 @@ const Home = () => {
             </div>
             <div className="section2">
                 <img src="./images/section2-img.png" alt="league-of-legends-rift" />
-                <h3>LOOKUP ANYONE</h3>
-                <input type="text" placeholder="Search"/>
-                <p>Have fun in your next conquest, and please Don’t act as Leeroy Jenkings!!</p>
+                <div>
+                    <h3>LOOKUP ANYONE</h3>
+                    <input type="text" placeholder="Search"/>
+                    <p>Have fun in your next conquest, and please Don’t act as Leeroy Jenkings!!</p>
+                </div>
             </div>
         </div>
     )
