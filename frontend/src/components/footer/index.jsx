@@ -2,7 +2,7 @@ import "./footer.css"
 
 const Footer = () => {
     return(
-        <footer>
+        <footer className="footer">
             Hackathon Alumni One 2024
         </footer>
     )

@@ -1,6 +1,6 @@
-footer{
-    height: 80px;
+.footer{
     display: flex;
+    height: 80px;
     justify-content: center;
     align-items: center;
 }
