@@ -3,7 +3,7 @@ import "./nav.css"
 const Nav = () => {
     return(
         <nav className="Nav">
-            <button class="menu__icon">
+            <button className="menu__icon">
                 <span></span>
                 <span></span>
             </button>
