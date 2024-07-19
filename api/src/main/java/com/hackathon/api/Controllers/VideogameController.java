@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,7 +39,8 @@ public class VideogameController {
                 , HttpStatus.OK);
     }
     
-    @PostMapping("/videogame")
+    @PostMapping("/createVideogame")
+    @PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> create(@RequestBody VideogameDto videogameDto) {
         Videogame videogameSave = null;
@@ -63,7 +65,8 @@ public class VideogameController {
         }
     }
 
-    @PutMapping("videogame/{id}")
+    @PutMapping("/updateVideogame/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> update(@RequestBody VideogameDto videogameDto, @PathVariable Integer id) {
         Videogame videogameUpdate = null;
@@ -98,7 +101,8 @@ public class VideogameController {
         }
     }
 
-    @DeleteMapping("videogame/{id}")
+    @DeleteMapping("/deleteVideogame/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> delete(@PathVariable Integer id) {
         try {
             Videogame videogameDelete = videogameService.findById(id);
@@ -114,7 +118,7 @@ public class VideogameController {
         }
     }
 
-    @GetMapping("videogame/{id}")
+    @GetMapping("/getOneVideogame/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> showById(@PathVariable Integer id) {
         Videogame videogame = videogameService.findById(id);

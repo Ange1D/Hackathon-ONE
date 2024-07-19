@@ -14,9 +14,12 @@ public interface IUserService {
 
     UserEntity findById(Integer id);
 
+    void update(UserDto userDto, Integer id);
 
     void delete(Integer id);
 
     boolean existsById(Integer id);
+
+
 
 }
