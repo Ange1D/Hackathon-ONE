@@ -72,7 +72,6 @@ public class UserController {
                                 .id(userDto.getId())
                                 .username(userDto.getUsername())
                                 .email(userDto.getEmail())
-                                .password(userDto.getPassword())
                                 .role(Role.valueOf(userDto.getRole().name()))
                                 .build())
                         .build()
@@ -95,7 +94,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/getUser/{id}")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> findUser(@PathVariable String id){
@@ -126,8 +125,9 @@ public class UserController {
 
     @DeleteMapping("/deleteUSer/{id}")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
-    public ResponseEntity<?> deleteUser(@PathVariable String id){
+    public ResponseEntity<?> deleteUser(@PathVariable Integer id){
         try {
+            user.delete(id);
             return new ResponseEntity<>("se elimino el usuario con id: " + id, HttpStatus.OK);
         } catch (DataAccessException exDt) {
             return new ResponseEntity<>(

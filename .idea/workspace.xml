@@ -7,11 +7,6 @@
     <list default="true" id="bbecd271-a7f2-470e-bde6-1ab4b07a665c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/main/java/com/hackathon/api/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/hackathon/api/Controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/hackathon/api/Controllers/VideogameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/hackathon/api/Controllers/VideogameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/hackathon/api/Security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/hackathon/api/Security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/hackathon/api/Service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/hackathon/api/Service/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/hackathon/api/Service/impl/UserImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/hackathon/api/Service/impl/UserImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +115,8 @@
       <workItem from="1721285507343" duration="30000" />
       <workItem from="1721339849131" duration="724000" />
       <workItem from="1721350031563" duration="1400000" />
-      <workItem from="1721351484903" duration="2592000" />
+      <workItem from="1721351484903" duration="3481000" />
+      <workItem from="1721434767543" duration="2292000" />
     </task>
     <servers />
   </component>
