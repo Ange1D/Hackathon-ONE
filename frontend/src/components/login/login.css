@@ -1,0 +1,67 @@
+.login{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginTitle{
+    height: 26rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginTitle>img{
+    position: absolute;
+    object-fit: cover;
+    z-index: -1;
+    height: 26rem;
+    opacity: 67%;
+    width: 100vw;
+}
+
+.loginTitle>h2{
+    font-size: 80px;
+    opacity: 100%;
+    z-index: 1;
+}
+
+.loginCred{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginCred>h3{
+    margin: 8px 0px;
+}
+
+.loginCred>input{
+    border-radius: 10px;
+    border: none;
+    background-color: aliceblue;
+    color: black;
+    height: 30px;
+    font-size: larger;
+}
+
+.loginCred>label{
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.check{
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+}
+
+.loginCred>button{
+    height: 40px;
+    width: 280px;
+    color: #F9F9F9;
+    background-color: #442d8b;
+    border-radius: 10px;
+    border: none;
+}

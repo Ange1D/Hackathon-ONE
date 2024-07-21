@@ -1,34 +1,133 @@
-.hero-bg{
+.hero{
+    height: 26rem;
+}
+.hero-bg {
     position: absolute;
     z-index: -1;
+    object-fit: cover;
+    width: 100vw;
+    height: 26rem;
 }
 
-.hero-front{
+.hero-front {
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    height: 26rem;
+    background-color: rgba(105, 105, 105, 0.7);
+}
+
+.hero-front > h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 40px;
+    font-family: 'Montserrat Subrayada';
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.hero-front > button {
+    font-family: Impact;
+    letter-spacing: 1px;
+    font-size: medium;
+    background-color: #442D8B;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    border: none;
+    padding: 4px 8px; /* Consolidado */
 }
 
 
+.hero-front>button:hover{
+    transform: scale(1.2);
+}
+
+.section1{
+    height: 20rem;
+}
+
+.section1>img{
+    opacity: 60%;
+    height: 10rem;
+    width: 100vw;
+    object-fit: cover;
+    z-index: -1;
+    position: absolute;
+}
+
+.section1>div{
+    height: 20rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.section1>div>h3{
+    font-family: 'Montserrat Subrayada';
+    text-align: center;
+    font-size: 30px;
+    width: 60%;
+    line-height: 1.5;
+}
+
+.section1>div>p{
+    font-size: 20px;
+    line-height: 1.5;
+    width: 50%;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.section2{
+    height: 20rem;
+}
+
+.section2>img{
+    opacity: 60%;
+    height: 20rem;
+    width: 100vw;
+    object-fit: cover;
+    z-index: -1;
+    position: absolute;
+}
+
+.section2>div{
+    height: 20rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.section2>div>h3{
+    font-family: 'Montserrat Subrayada';
+    text-align: center;
+    font-size: 30px;
+    width: 60%;
+    line-height: 1.5;
+}
+
+.section2>div>input{
+    background-color: #FFF;
+    border-radius: 5px;
+    border: none;
+    height: 42px;
+    padding: 0px 8px;
+}
+
+.section2>div>p{
+    font-size: 20px;
+    line-height: 1.5;
+    width: 65%;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
 @media (max-width: 640px) {
     /* small screen */
-    .hero{
-        height: 24rem;
-    }
-
-    .hero-bg{
-        height: 24rem;
-        opacity: 70%;
-    }
-    
-    .hero-front{
-        display: flex;
-        flex-flow: column;
-        height: 24rem;
-        justify-content: center;
-        align-items: center;
-    }
 }  
 
 @media (641px <= width <= 768px) {

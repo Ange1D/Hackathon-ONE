@@ -1,0 +1,71 @@
+.register{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.registerTitle{
+    height: 26rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registerTitle>img{
+    position: absolute;
+    object-fit: cover;
+    z-index: -1;
+    height: 26rem;
+    opacity: 67%;
+    width: 100vw;
+}
+
+.registerTitle>h2{
+    font-size: 80px;
+    opacity: 100%;
+    z-index: 1;
+}
+
+.registerCred{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registerCred>h3{
+    margin: 8px 0px;
+}
+
+.registerCred>input{
+    border-radius: 10px;
+    border: none;
+    background-color: aliceblue;
+    color: black;
+    height: 30px;
+    font-size: larger;
+}
+
+.registerCred>label{
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.check{
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+}
+
+.registerCred>button{
+    height: 40px;
+    width: 280px;
+    color: #F9F9F9;
+    background-color: #442d8b;
+    border-radius: 10px;
+    border: none;
+}
+
+.registerCred>label>a{
+    margin-left: 4px;
+}

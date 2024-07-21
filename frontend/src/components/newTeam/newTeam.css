@@ -1,0 +1,56 @@
+.yourTeam{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.yourTeamTitle{
+    height: 26rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.yourTeamTitle>img{
+    position: absolute;
+    object-fit: cover;
+    z-index: -1;
+    height: 26rem;
+    opacity: 67%;
+    width: 100vw;
+}
+
+.yourTeamTitle>h2{
+    font-size: 80px;
+    opacity: 100%;
+    z-index: 1;
+}
+
+.yourTeamInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.yourTeamInfo>h3{
+    margin: 8px 0px;
+}
+
+.yourTeamInfo>input{
+    border-radius: 10px;
+    border: none;
+    background-color: aliceblue;
+    color: black;
+    height: 30px;
+    font-size: larger;
+}
+
+.yourTeamInfo>button{
+    margin-top: 30px;
+    height: 40px;
+    width: 280px;
+    color: #F9F9F9;
+    background-color: #442d8b;
+    border-radius: 10px;
+    border: none;
+}
