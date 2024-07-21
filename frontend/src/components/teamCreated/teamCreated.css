@@ -1,0 +1,75 @@
+.teamCreated{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.teamCreatedTitle{
+    height: 26rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.teamCreatedTitle>img{
+    position: absolute;
+    object-fit: cover;
+    z-index: -1;
+    height: 26rem;
+    opacity: 67%;
+    width: 100vw;
+}
+
+.teamCreatedTitle>h2{
+    font-size: 80px;
+    opacity: 100%;
+    z-index: 1;
+}
+
+.teamCreatedInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+
+.logo{
+    height: 124px;
+}
+.back-logo{
+    z-index: -2;
+    position: absolute;
+    margin-top: 40px;
+}
+
+.teamInfo{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.teamInfo>H2{
+    font-size: 24px;
+}
+
+.teamInfo>h3{
+    margin: 8px 0px;
+}
+
+.teamInfo>input{
+    border-radius: 10px;
+    border: none;
+    background-color: aliceblue;
+    color: black;
+    height: 30px;
+    font-size: larger;
+}
+
+.teamCreatedInfo>button{
+    margin-top: 30px;
+    height: 40px;
+    width: 280px;
+    color: #F9F9F9;
+    background-color: #442d8b;
+    border-radius: 10px;
+    border: none;
+}
