@@ -9,4 +9,5 @@ public interface UserDao extends CrudRepository<UserEntity, Integer> {
 
     Optional<UserEntity> findByUsername(String username);
 
+    
 }
