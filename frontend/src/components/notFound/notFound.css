@@ -1,0 +1,30 @@
+.notFound{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+}
+
+.notFound>h2{
+    margin: 40px 0px;
+    font-weight: 700;
+    font-size: x-large;
+}
+
+.notFound>img{
+    width: 100vw;
+    height: 400px;
+    object-fit: cover;
+}
+
+.notFound>button{
+    font-size: x-large;
+    font-weight: 700;
+    margin: 30px;
+    height: 80px;
+    width: 280px;
+    color: #F9F9F9;
+    background-color: #442d8b;
+    border-radius: 10px;
+    border: solid 1px;
+}
