@@ -8,6 +8,10 @@
 
 La maquetación del proyecto fue creada usando [Figma](https://www.figma.com).
 
+![Imagen de la maquetación del proyecto en móvil](./images/frontend/figma/mobile.jpg)
+
+![Imagen de la maquetación del proyecto en escritorio](./images/frontend/figma/desktop.jpg)
+
 ## 2. Creación del proyecto
 
 El proyecto fue creado usando [Vite](https://vitejs.dev/) con el siguiente comando:
