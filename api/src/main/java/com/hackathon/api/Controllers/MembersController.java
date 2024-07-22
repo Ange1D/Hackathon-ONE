@@ -106,10 +106,7 @@ public class MembersController {
             if(memberI.existsById(id)){
                 Member memberborrar = memberI.findMembers(id);
                 memberI.delete(memberborrar);
-                return new ResponseEntity<>(MessageResponse.builder()
-                    .message("Member deleted successfully")
-                    .object(null)
-                    .build(), HttpStatus.OK);
+                return new ResponseEntity<>(memberborrar, HttpStatus.NO_CONTENT);
             }
             else{
                 return new ResponseEntity<>(
@@ -160,12 +157,12 @@ public class MembersController {
        
     }
 
-    @GetMapping("listarallmembers")
+    @GetMapping("/listarallmembers")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> ListallMembers() {
         try {
             List<Member> listmembers = memberI.listAll();
-            if(listmembers == null){
+            if(listmembers.isEmpty()){
                 return new ResponseEntity<>(
                     MessageResponse.builder()
                     .message("No members found")

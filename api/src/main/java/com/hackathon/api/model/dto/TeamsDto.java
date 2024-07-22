@@ -14,8 +14,8 @@ import lombok.NoArgsConstructor;
 
 public class TeamsDto {
     
-    private Long id;
-    private String name;
+    private Long team_id;
+    private String team_name;
     private Long team_number;
     private Integer video_game;
     private String description;

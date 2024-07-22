@@ -48,8 +48,8 @@ public class TeamsImp implements ITeams{
 	@Override
 	public Teams save(TeamsDto teamsDto) {
 		Teams teams = Teams.builder()
-                      .team_id(teamsDto.getId())
-                      .name(teamsDto.getName())
+                      .team_id(teamsDto.getTeam_id())
+                      .team_name(teamsDto.getTeam_name())
                       .team_number(teamsDto.getTeam_number())
                       .video_game(teamsDto.getVideo_game())
                       .description(teamsDto.getDescription())
@@ -63,7 +63,7 @@ public class TeamsImp implements ITeams{
 	@Override
     public Teams actualizarTeams(TeamsDto teamsDto, String name ){
         Teams teams = teamsDao.findByTeamName(name);
-        teams.setName(teamsDto.getName());
+        teams.setTeam_name(teamsDto.getTeam_name());
         teams.setTeam_number(teamsDto.getTeam_number());
         teams.setVideo_game(teamsDto.getVideo_game());
         teams.setDescription(teamsDto.getDescription());
