@@ -19,7 +19,7 @@ public class Teams {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long team_id;
-    private String team_name;
+    private String name;
     private Long team_number;
     private Integer video_game;
     private String description;

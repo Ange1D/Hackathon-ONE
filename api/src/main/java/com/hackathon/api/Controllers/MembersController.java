@@ -67,13 +67,13 @@ public class MembersController {
     @PutMapping("memberUpdate/{name}")
     @PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<?> updateMember(@RequestBody MembersDto membersDto, @PathVariable String username) {
+    public ResponseEntity<?> updateMember(@RequestBody MembersDto membersDto, @PathVariable String name) {
         //TODO: process PUT request
         
         try {
-            if(memberI.existsByname(username)){
-                membersDto.setUser(username);
-                memberI.actualizarMembers(membersDto, username);
+            if(memberI.existsByname(name)){
+                membersDto.setUser(name);
+                memberI.actualizarMembers(membersDto, name);
                 return new ResponseEntity<>(MessageResponse.builder()
                     .message("Member update successfully")
                     .object(membersDto)

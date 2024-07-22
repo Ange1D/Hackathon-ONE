@@ -25,7 +25,7 @@ public class UserEntity {
     @Enumerated(EnumType.STRING)
     private Role role ;
     @JsonIgnore
-    @OneToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "user")
     private List<Teams> teams;
 
 }

@@ -1,10 +1,9 @@
 package com.hackathon.api.Service.impl;
 
 import java.util.List;
-import java.util.Optional;
 
-import org.glassfish.jaxb.core.annotation.OverrideAnnotationOf;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.hackathon.api.Service.ITeams;
@@ -13,7 +12,7 @@ import com.hackathon.api.model.dto.TeamsDto;
 import com.hackathon.api.model.entity.Teams;
 
 
-
+@Service
 public class TeamsImp implements ITeams{
     @Autowired
     private TeamsDao teamsDao;
@@ -49,7 +48,7 @@ public class TeamsImp implements ITeams{
 	public Teams save(TeamsDto teamsDto) {
 		Teams teams = Teams.builder()
                       .team_id(teamsDto.getTeam_id())
-                      .team_name(teamsDto.getTeam_name())
+                      .name(teamsDto.getName())
                       .team_number(teamsDto.getTeam_number())
                       .video_game(teamsDto.getVideo_game())
                       .description(teamsDto.getDescription())
@@ -62,8 +61,8 @@ public class TeamsImp implements ITeams{
     @Transactional
 	@Override
     public Teams actualizarTeams(TeamsDto teamsDto, String name ){
-        Teams teams = teamsDao.findByTeamName(name);
-        teams.setTeam_name(teamsDto.getTeam_name());
+        Teams teams = teamsDao.findByName(name);
+        teams.setName(teamsDto.getName());
         teams.setTeam_number(teamsDto.getTeam_number());
         teams.setVideo_game(teamsDto.getVideo_game());
         teams.setDescription(teamsDto.getDescription());

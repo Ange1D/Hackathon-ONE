@@ -13,7 +13,9 @@ import java.util.Optional;
 
 
 import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Service;
 
+@Service
 public class MembersImp implements IMembers {
     @Autowired
     private MembersDao membersDao;
@@ -53,7 +55,7 @@ public class MembersImp implements IMembers {
     @Override
     public void actualizarMembers(MembersDto membersDto, String name) {
         
-        Optional<Member> optionalMember=  membersDao.findByUsername(name);
+        Optional<Member> optionalMember=  membersDao.findByUser(name);
 
         if (optionalMember.isPresent()) {
             Member member = optionalMember.get();
@@ -71,7 +73,7 @@ public class MembersImp implements IMembers {
     @Override
     public boolean existsByname(String name) {
         // TODO Auto-generated method stub
-        return membersDao.findByusername(name);
+        return membersDao.findByuser(name);
 
     }
 

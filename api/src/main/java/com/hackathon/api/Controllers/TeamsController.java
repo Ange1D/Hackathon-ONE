@@ -45,7 +45,7 @@ public class TeamsController {
                 .message("Teams created succcessfully")
                 .object(teamsDto.builder()
                 .team_id(teams.getTeam_id())
-                .team_name(teamsDto.getTeam_name())
+                .name(teamsDto.getName())
                 .team_number(teamsDto.getTeam_number())
                 .video_game(teamsDto.getVideo_game())
                 .description(teamsDto.getDescription())
@@ -67,7 +67,7 @@ public class TeamsController {
         
     }
 
-    @PutMapping("teamsupdate/{teams_name}")
+    @PutMapping("teamsupdate/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> putMethodName(@RequestBody TeamsDto teamsDto, @PathVariable Long id) {
