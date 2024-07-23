@@ -20,7 +20,7 @@ public class VideogameController {
     @Autowired
     private IVideogameService videogameService;
 
-    @GetMapping("/videogames")
+    @GetMapping("video-games")
     public ResponseEntity<?> showAll() {
         List<Videogame> getList = videogameService.listAll();
         if (getList == null) {
@@ -38,8 +38,8 @@ public class VideogameController {
                         .build()
                 , HttpStatus.OK);
     }
-    
-    @PostMapping("/createVideogame")
+
+    @PostMapping("video-game")
     @PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> create(@RequestBody VideogameDto videogameDto) {
@@ -65,7 +65,7 @@ public class VideogameController {
         }
     }
 
-    @PutMapping("/updateVideogame/{id}")
+    @PutMapping("video-game/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> update(@RequestBody VideogameDto videogameDto, @PathVariable Integer id) {
@@ -101,7 +101,7 @@ public class VideogameController {
         }
     }
 
-    @DeleteMapping("/deleteVideogame/{id}")
+    @DeleteMapping("video-game/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> delete(@PathVariable Integer id) {
         try {
@@ -118,7 +118,7 @@ public class VideogameController {
         }
     }
 
-    @GetMapping("/getOneVideogame/{id}")
+    @GetMapping("video-game/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> showById(@PathVariable Integer id) {
         Videogame videogame = videogameService.findById(id);

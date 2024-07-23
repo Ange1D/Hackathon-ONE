@@ -14,14 +14,11 @@ import lombok.NoArgsConstructor;
 
 public class TeamsDto {
     
-    private Long team_id;
-    private String team_name;
-    private Long team_number;
+    private Long id;
+    private String name;
     private Integer video_game;
     private String description;
     private String create_at;
-    private Long create_by;
-    private UserEntity user;
-    private Role role;
+    private UserEntity create_by;
 
 }

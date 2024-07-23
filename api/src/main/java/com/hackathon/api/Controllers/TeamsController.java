@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
-@RequestMapping("/teams")
+@RequestMapping("/api/v1")
 
 
 public class TeamsController {
@@ -36,7 +36,7 @@ public class TeamsController {
     @Autowired
     TeamsImp teamI;
 
-    @PostMapping("/createteams")
+    @PostMapping("team")
     public ResponseEntity<?> creatingteams(@RequestBody TeamsDto teamsDto) {
         //TODO: process POST request
         try {
@@ -44,9 +44,8 @@ public class TeamsController {
             return new ResponseEntity<>(MessageResponse.builder()
                 .message("Teams created succcessfully")
                 .object(teamsDto.builder()
-                .team_id(teams.getTeam_id())
-                .team_name(teamsDto.getTeam_name())
-                .team_number(teamsDto.getTeam_number())
+                .id(teams.getId())
+                .name(teamsDto.getName())
                 .video_game(teamsDto.getVideo_game())
                 .description(teamsDto.getDescription())
                 .create_at(teamsDto.getCreate_at())
@@ -67,7 +66,7 @@ public class TeamsController {
         
     }
 
-    @PutMapping("teamsupdate/{teams_name}")
+    @PutMapping("team/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> putMethodName(@RequestBody TeamsDto teamsDto, @PathVariable Long id) {
@@ -104,7 +103,7 @@ public class TeamsController {
         
     }
 
-    @DeleteMapping("/deleteteams")
+    @DeleteMapping("team/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> deleteTeams(@PathVariable Long id){
 
@@ -133,7 +132,7 @@ public class TeamsController {
         }
     }
 
-    @GetMapping("/listofteams/{id}")
+    @GetMapping("team/{id}")
     public ResponseEntity<?> listofteamsbyId(@RequestParam Long id){
         try {
             Teams teams = teamI.findTeams(id);
@@ -161,7 +160,7 @@ public class TeamsController {
                     , HttpStatus.METHOD_NOT_ALLOWED);
         }
     }
-    @GetMapping("/listallteams")
+    @GetMapping("teams")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> listofallTeams(){
         try {

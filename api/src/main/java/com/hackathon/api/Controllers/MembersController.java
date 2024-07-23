@@ -30,13 +30,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 @RestController
-@RequestMapping("/member")
+@RequestMapping("/api/v1")
 
 public class MembersController {
     @Autowired
     MembersImp memberI;
 
-    @PostMapping("/createmember")
+    @PostMapping("member")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> creatingmember(@RequestBody MembersDto membersDto) {
         //TODO: process POST request
@@ -45,9 +45,9 @@ public class MembersController {
             return new ResponseEntity<>(MessageResponse.builder()
                 .message("Member created successfully")
                 .object(membersDto.builder()
-                .members_id(member.getMembers_id())
+                .id(member.getId())
                 .user(membersDto.getUser())
-                .team_number(membersDto.getTeam_number())
+                .team(membersDto.getTeam())
                 .build())
             .build()
             , HttpStatus.CREATED);
@@ -64,16 +64,16 @@ public class MembersController {
         }
     }
     
-    @PutMapping("memberUpdate/{name}")
+    @PutMapping("member/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<?> updateMember(@RequestBody MembersDto membersDto, @PathVariable String username) {
+    public ResponseEntity<?> updateMember(@RequestBody MembersDto membersDto, @PathVariable String id) {
         //TODO: process PUT request
         
         try {
-            if(memberI.existsByname(username)){
-                membersDto.setUser(username);
-                memberI.actualizarMembers(membersDto, username);
+            if(memberI.existsById(Long.parseLong(id))){
+                membersDto.setId(Integer.parseInt(id));
+                memberI.actualizarMembers(membersDto, id);
                 return new ResponseEntity<>(MessageResponse.builder()
                     .message("Member update successfully")
                     .object(membersDto)
@@ -99,7 +99,7 @@ public class MembersController {
                     , HttpStatus.METHOD_NOT_ALLOWED);
         }
     }
-    @DeleteMapping("/deletemember/{id}")
+    @DeleteMapping("member/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> deletememeber(@PathVariable Long id){
         try {
@@ -127,7 +127,7 @@ public class MembersController {
         }
     }
 
-    @GetMapping("/listofmemebers/{id}")
+    @GetMapping("members/{id}")
     public ResponseEntity<?> listofmembersbyId(@RequestParam Long id) {
         try {
             Member member = memberI.findMembers(id);
@@ -157,7 +157,7 @@ public class MembersController {
        
     }
 
-    @GetMapping("/listarallmembers")
+    @GetMapping("members")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> ListallMembers() {
         try {
