@@ -9,7 +9,4 @@ import com.hackathon.api.model.entity.Member;
 
 public interface MembersDao extends CrudRepository<Member, Long>{
     
-    Optional<Member> findByUser(String user);
-
-    boolean findByuser(String user);
 }

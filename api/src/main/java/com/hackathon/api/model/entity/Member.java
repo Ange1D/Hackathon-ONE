@@ -14,13 +14,11 @@ import lombok.*;
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String user;
-    private Long team;
+    private Integer id;
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UserEntity users;
+    @JoinColumn(name = "user")
+    private UserEntity user;
     @ManyToOne
-    @JoinColumn(name = "team_id")
-    private Teams teams;
+    @JoinColumn(name = "team")
+    private Teams team;
 }

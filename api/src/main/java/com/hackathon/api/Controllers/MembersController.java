@@ -64,16 +64,16 @@ public class MembersController {
         }
     }
     
-    @PutMapping("member{name}")
+    @PutMapping("member/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<?> updateMember(@RequestBody MembersDto membersDto, @PathVariable String name) {
+    public ResponseEntity<?> updateMember(@RequestBody MembersDto membersDto, @PathVariable String id) {
         //TODO: process PUT request
         
         try {
-            if(memberI.existsByname(name)){
-                membersDto.setUser(name);
-                memberI.actualizarMembers(membersDto, name);
+            if(memberI.existsById(Long.parseLong(id))){
+                membersDto.setId(Integer.parseInt(id));
+                memberI.actualizarMembers(membersDto, id);
                 return new ResponseEntity<>(MessageResponse.builder()
                     .message("Member update successfully")
                     .object(membersDto)

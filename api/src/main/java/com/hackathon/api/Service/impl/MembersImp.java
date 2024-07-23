@@ -29,8 +29,8 @@ public class MembersImp implements IMembers {
     @Override
     public Member save(MembersDto membersDto) {
         Member member = Member.builder()
-            .id(membersDto.getId())
             .user(membersDto.getUser())
+            .team(membersDto.getTeam())
             .build();
         return membersDao.save(member);
 
@@ -52,9 +52,9 @@ public class MembersImp implements IMembers {
     }
 
     @Override
-    public void actualizarMembers(MembersDto membersDto, String name) {
+    public void actualizarMembers(MembersDto membersDto, String id) {
         
-        Optional<Member> optionalMember=  membersDao.findByUser(name);
+        Optional<Member> optionalMember=  membersDao.findById(Long.parseLong(id));
 
         if (optionalMember.isPresent()) {
             Member member = optionalMember.get();
@@ -66,13 +66,6 @@ public class MembersImp implements IMembers {
         else{
             System.out.println("No existe el miembro");
         }
-    }
-
-    @Override
-    public boolean existsByname(String name) {
-        // TODO Auto-generated method stub
-        return membersDao.findByuser(name);
-
     }
 
     
