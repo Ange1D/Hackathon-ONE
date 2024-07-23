@@ -13,7 +13,9 @@ import java.util.Optional;
 
 
 import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Service;
 
+@Service
 public class MembersImp implements IMembers {
     @Autowired
     private MembersDao membersDao;
@@ -27,9 +29,8 @@ public class MembersImp implements IMembers {
     @Override
     public Member save(MembersDto membersDto) {
         Member member = Member.builder()
-            .members_id(membersDto.getMembers_id())
             .user(membersDto.getUser())
-            .team_number(membersDto.getTeam_number())
+            .team(membersDto.getTeam())
             .build();
         return membersDao.save(member);
 
@@ -51,28 +52,20 @@ public class MembersImp implements IMembers {
     }
 
     @Override
-    public void actualizarMembers(MembersDto membersDto, String name) {
+    public void actualizarMembers(MembersDto membersDto, String id) {
         
-        Optional<Member> optionalMember=  membersDao.findByUsername(name);
+        Optional<Member> optionalMember=  membersDao.findById(Long.parseLong(id));
 
         if (optionalMember.isPresent()) {
             Member member = optionalMember.get();
-            member.setMembers_id(membersDto.getMembers_id());
             member.setUser(membersDto.getUser());
-            member.setTeam_number(membersDto.getTeam_number());
+            member.setTeam(membersDto.getTeam());
             membersDao.save(member);
             
         }
         else{
             System.out.println("No existe el miembro");
         }
-    }
-
-    @Override
-    public boolean existsByname(String name) {
-        // TODO Auto-generated method stub
-        return membersDao.findByusername(name);
-
     }
 
     

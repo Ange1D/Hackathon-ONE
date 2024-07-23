@@ -6,7 +6,7 @@ import com.hackathon.api.model.entity.Teams;
 
 public interface TeamsDao extends CrudRepository<Teams, Long>{
     
-    Teams findByTeamName(String teamName);
+    Teams findByName(String team_name);
 
     
 }

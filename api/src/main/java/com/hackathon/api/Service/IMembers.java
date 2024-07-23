@@ -14,8 +14,6 @@ public interface IMembers {
 
     boolean existsById(Long id);
 
-    boolean existsByname(String name);
-
     Member findMembers(Long id);
 
     void actualizarMembers(MembersDto membersDto, String name );

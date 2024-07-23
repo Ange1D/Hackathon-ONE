@@ -18,17 +18,14 @@ import lombok.*;
 public class Teams {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long team_id;
-    private String team_name;
-    private Long team_number;
+    private Long id;
+    private String name;
     private Integer video_game;
     private String description;
     private String create_at;
-    private Long create_by;
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UserEntity user;
-    private Role role;
-   
+    @JoinColumn(name = "create_by")
+    private UserEntity create_by;
+
 
 }
