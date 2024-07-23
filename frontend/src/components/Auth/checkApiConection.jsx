@@ -6,7 +6,7 @@ const CheckApiConnection = () => {
 
   const checkConnection = async () => {
     try {
-      const response = await axios.get('https://localhost:8000'); // Reemplaza con la URL de tu API
+      const response = await axios.get('http://18.188.147.212/api/v1/'); // Reemplaza con la URL de tu API
       setStatus(`Conexión exitosa: ${response.status}`);
     } catch (error) {
       if (error.response) {
