@@ -1,10 +1,8 @@
-import './App.css'
 import Home from './components/home'
 import Footer from './components/footer'
 import Nav from './components/nav'
 import Login from './components/login'
 import Register from './components/register'
-import React from 'react';
 import { Routes, Route} from "react-router-dom";
 import MyProfile from './components/myProfile'
 import NewTeam from './components/newTeam'

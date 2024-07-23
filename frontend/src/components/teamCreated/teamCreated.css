@@ -1,75 +1,98 @@
-.teamCreated{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+.teamCreated {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
-.teamCreatedTitle{
-    height: 26rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.teamCreatedTitle {
+	height: 12rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.teamCreatedTitle>img{
-    position: absolute;
-    object-fit: cover;
-    z-index: -1;
-    height: 26rem;
-    opacity: 67%;
-    width: 100vw;
+.teamCreatedTitle > img {
+	position: absolute;
+	object-fit: cover;
+	height: 12rem;
+	opacity: 67%;
+	width: 100vw;
+    object-position: 0px -20px;
 }
 
-.teamCreatedTitle>h2{
-    font-size: 80px;
-    opacity: 100%;
+.teamCreatedTitle > h2 {
+	font-size: 36px;
+	opacity: 100%;
+	z-index: 1;
+	font-weight: bolder;
+}
+
+.teamCreatedInfo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 15px;
+	margin-top: 12px;
+}
+
+.logo {
+	height: 124px;
+	z-index: 1;
+}
+.back-logo {
+	z-index: 0;
+	position: absolute;
+	margin-top: 40px;
+}
+
+.teamInfo {
+	margin-top: 40px;
+	text-align: center;
     z-index: 1;
 }
 
-.teamCreatedInfo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
+.teamInfo > H2 {
+	font-size: 24px;
+	z-index: 2;
 }
 
-.logo{
-    height: 124px;
-}
-.back-logo{
-    z-index: -2;
-    position: absolute;
-    margin-top: 40px;
+.teamInfo > h3 {
+	margin: 8px 0px;
+
 }
 
-.teamInfo{
-    margin-top: 40px;
-    text-align: center;
+.teamInfo > input {
+	border-radius: 10px;
+	border: none;
+	background-color: aliceblue;
+	color: black;
+	height: 30px;
+	font-size: larger;
 }
 
-.teamInfo>H2{
-    font-size: 24px;
+.teamCreatedInfo > button {
+	margin-top: 30px;
+	height: 40px;
+	width: 280px;
+	color: #f9f9f9;
+	background-color: #442d8b;
+	border-radius: 10px;
+	border: 1px solid;
 }
 
-.teamInfo>h3{
-    margin: 8px 0px;
-}
+@media (min-width: 1024px) {
+	.teamCreated {
+		max-width: 42vw;
+        height: 594px;
+		background-color: #333232;
+        margin: 20px 0;
+        border-radius: 4px;
+	}
 
-.teamInfo>input{
-    border-radius: 10px;
-    border: none;
-    background-color: aliceblue;
-    color: black;
-    height: 30px;
-    font-size: larger;
-}
+	.teamCreatedTitle > img {
+		width: 42vw;
+        object-position: 0px -40px;
+        object-fit:cover;
+	}
 
-.teamCreatedInfo>button{
-    margin-top: 30px;
-    height: 40px;
-    width: 280px;
-    color: #F9F9F9;
-    background-color: #442d8b;
-    border-radius: 10px;
-    border: none;
 }

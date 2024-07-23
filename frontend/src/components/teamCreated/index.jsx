@@ -13,13 +13,13 @@ const TeamCreated = () =>{
                 <img src="./images/rectangle10.png" className="back-logo" alt="team created background" />
                 <div className="teamInfo">
                     <h2>TEAM'S NAME</h2>
-                    
+
                     <h3>MEMBERS</h3>
-                    
+
                     <ul>
                         <li>member x</li>
                     </ul>
-                    
+
                     <h3>COUNTRY</h3>
                 </div>
                 <button type="submit">CREATE NEW TEAM</button>
