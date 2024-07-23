@@ -2,7 +2,10 @@
 # Documentación Frontend
 
 1. [Maquetación del proyecto](#1-maquetación-del-proyecto)  
-2. [Creación del proyecto](#2-creación-del-proyecto)  
+2. [Requisitos del proyecto](#2-requisitos-del-proyecto)  
+3. [Creación del proyecto](#3-creación-del-proyecto) 
+4. [Dependencias del proyecto](#4-dependencias-del-proyecto) 
+5. [Estructura del proyecto](#5-estructura-del-proyecto) 
 
 ## 1. Maquetación del proyecto
 
@@ -12,10 +15,33 @@ La maquetación del proyecto fue creada usando [Figma](https://www.figma.com).
 
 ![Imagen de la maquetación del proyecto en escritorio](./images/frontend/figma/desktop.jpg)
 
-## 2. Creación del proyecto
+## 1. Requisitos del proyecto
+
+[Node.js](https://nodejs.org/en/download/package-manager)  
+
+## 3. Creación del proyecto
 
 El proyecto fue creado usando [Vite](https://vitejs.dev/) con el siguiente comando:
 
 ```sh
 npm create vite@latest frontend -- --template react
 ```
+## 4. Dependencias del proyecto
+
+El proyecto se crea con las siguientes dependencias:
+
+- **react**: Es una biblioteca de JavaScript utilizada para construir interfaces de usuario interactivas y reutilizables. React permite crear componentes reutilizables que se actualizan de manera eficiente cuando cambia el estado de la aplicación.
+- **react-dom**: Es una biblioteca específica de React que se utiliza para renderizar componentes de React en el navegador. React DOM proporciona métodos para montar y actualizar componentes de React en el DOM (Document Object Model). Es una dependencia necesaria cuando se trabaja con React en aplicaciones web.
+
+Adicionalmente se agregaron:
+
+- **axios**: Es una biblioteca basada en promesas que se utiliza para realizar solicitudes HTTP en aplicaciones web. Se utiliza comúnmente para realizar solicitudes a una API o para interactuar con un servidor. Proporciona una interfaz fácil de usar para realizar solicitudes HTTP y manejar las respuestas de manera eficiente.
+- **react-router-dom**: Es una biblioteca que se utiliza para manejar la navegación en aplicaciones de React. Proporciona componentes y utilidades para definir rutas y enlaces en una aplicación de React.
+
+
+## 5. Estructura del proyecto
+
+- **\public\images**: Esta carpeta se encuentra en la raíz del proyecto y se utiliza para almacenar imágenes que se utilizarán en la aplicación. Los archivos colocados en esta carpeta estarán disponibles públicamente y se pueden acceder a ellos directamente desde la URL de la aplicación.
+- **\src**: Esta carpeta también se encuentra en la raíz del proyecto y es donde se encuentra la mayor parte del código fuente de la aplicación. Aquí es donde se desarrollan los componentes, servicios y otros archivos relacionados con la lógica de la aplicación.
+- **\src\components**: Esta carpeta se utiliza para almacenar los componentes de React reutilizables que se utilizan en la aplicación. Al organizar los componentes en esta carpeta, se facilita su búsqueda y mantenimiento.
+- **\src\services**: Esta carpeta se utiliza para almacenar servicios o utilidades que se utilizan en la aplicación. Los servicios pueden incluir funciones o clases que se utilizan para realizar tareas específicas, como realizar solicitudes HTTP, manejar el estado global de la aplicación, autenticación, etc. Al organizar los servicios en esta carpeta, se facilita su reutilización y mantenimiento.
