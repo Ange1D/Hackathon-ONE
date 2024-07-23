@@ -15,10 +15,10 @@ import lombok.NoArgsConstructor;
 @Builder
 
 public class MembersDto {
-    private Long members_id;
+    private Long id;
     private String user;
-    private Integer team_number;
-    private UserEntity users;
+    private Long team;
+    private Long users;
     private Teams teams;
 
 }

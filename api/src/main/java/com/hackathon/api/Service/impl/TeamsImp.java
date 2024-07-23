@@ -2,6 +2,7 @@ package com.hackathon.api.Service.impl;
 
 import java.util.List;
 
+import com.hackathon.api.model.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,9 +48,8 @@ public class TeamsImp implements ITeams{
 	@Override
 	public Teams save(TeamsDto teamsDto) {
 		Teams teams = Teams.builder()
-                      .team_id(teamsDto.getTeam_id())
+                      .id(teamsDto.getId())
                       .name(teamsDto.getName())
-                      .team_number(teamsDto.getTeam_number())
                       .video_game(teamsDto.getVideo_game())
                       .description(teamsDto.getDescription())
                       .create_at(teamsDto.getCreate_at())
@@ -63,7 +63,6 @@ public class TeamsImp implements ITeams{
     public Teams actualizarTeams(TeamsDto teamsDto, String name ){
         Teams teams = teamsDao.findByName(name);
         teams.setName(teamsDto.getName());
-        teams.setTeam_number(teamsDto.getTeam_number());
         teams.setVideo_game(teamsDto.getVideo_game());
         teams.setDescription(teamsDto.getDescription());
         teams.setCreate_at(teamsDto.getCreate_at());

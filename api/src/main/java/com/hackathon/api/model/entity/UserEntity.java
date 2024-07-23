@@ -18,14 +18,14 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer user_id;
+    private Integer id;
     private String username;
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role ;
     @JsonIgnore
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "create_by")
     private List<Teams> teams;
 
 }

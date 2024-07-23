@@ -14,9 +14,9 @@ import lombok.*;
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long members_id;
+    private Long id;
     private String user;
-    private Integer team_number;
+    private Long team;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity users;
