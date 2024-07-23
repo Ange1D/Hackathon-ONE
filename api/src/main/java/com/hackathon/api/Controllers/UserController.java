@@ -3,33 +3,23 @@ package com.hackathon.api.Controllers;
 import com.hackathon.api.Service.impl.UserImpl;
 import com.hackathon.api.model.Role;
 import com.hackathon.api.model.dto.UserDto;
-import com.hackathon.api.model.dto.VideogameDto;
 import com.hackathon.api.model.entity.UserEntity;
-import com.hackathon.api.model.entity.Videogame;
 import com.hackathon.api.model.payload.MessageResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/v1")
 public class UserController {
 
     @Autowired
     UserImpl user;
 
-    @RequestMapping("/hello")
-    public String hello(){
-        return "Hello Wordl";
-    }
-
-    @PostMapping("/createUser")
+    @PostMapping("user")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> createUser(@RequestBody UserDto userDto){
         try{
@@ -37,7 +27,7 @@ public class UserController {
             return new ResponseEntity<>(MessageResponse.builder()
                             .message("User saved successfully")
                             .object(UserDto.builder()
-                                    .id(userEntity.getUser_id())
+                                    .id(userEntity.getId())
                                     .email(userEntity.getEmail())
                                     .username(userEntity.getUsername())
                                     .password(userEntity.getPassword())
@@ -58,7 +48,7 @@ public class UserController {
         }
     }
 
-    @PutMapping("/userUpdate/{id}")
+    @PutMapping("/user/{id}")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> update(@RequestBody UserDto userDto, @PathVariable String id){
@@ -94,7 +84,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("/getUser/{id}")
+    @GetMapping("user/{id}")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> findUser(@PathVariable String id){
@@ -114,7 +104,7 @@ public class UserController {
                 MessageResponse.builder()
                         .message("")
                         .object(UserDto.builder()
-                                .id(userEntity.getUser_id())
+                                .id(userEntity.getId())
                                 .email(userEntity.getEmail())
                                 .username(userEntity.getUsername())
                                 .build())
@@ -123,7 +113,7 @@ public class UserController {
 
     }
 
-    @DeleteMapping("/deleteUSer/{id}")
+    @DeleteMapping("user/{id}")
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<?> deleteUser(@PathVariable Integer id){
         try {
