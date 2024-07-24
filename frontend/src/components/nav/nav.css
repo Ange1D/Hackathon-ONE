@@ -107,6 +107,9 @@ ul {
 		gap: 8px;
 	}
 
+    a{
+        text-decoration: none;
+    }
 	ul {
 		display: flex;
 		gap: 12px;
