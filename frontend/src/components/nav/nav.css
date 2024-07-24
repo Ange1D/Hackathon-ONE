@@ -1,91 +1,125 @@
-.Nav{
-    height: 55px;
-    display: flex;
-    justify-content: space-around;
-    background-color: #191E2C;
-    align-items: center;
+.Nav {
+	height: 55px;
+	display: flex;
+	justify-content: space-around;
+	background-color: #191e2c;
+	align-items: center;
+	box-sizing: border-box;
 }
 
-.Nav>a{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 20%;
-    background-color: none;
+.Nav > a {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 20%;
+	background-color: none;
 }
 
-.Nav>a>h2{
-    transition: ease 0.4s;
+.Nav > a > h2 {
+	transition: ease 0.4s;
 }
 
-Nav>a>h2:hover{
-    transform: scale(1.1);
+Nav > a > h2:hover {
+	transform: scale(1.1);
 }
 
-.Nav>a>img{
-    height: 42px;
-    width: 32px;
-    border-radius: 20px;
+.Nav > a > img {
+	height: 42px;
+	width: 32px;
+	border-radius: 20px;
 }
-
-
-
-
 
 .menu__icon {
-    width: 2rem;
-    height: 2rem;
-    padding: .25rem;
-    background-color: rgb(29, 29, 31, .7);
-    backdrop-filter: saturate(180%) blur(20px);
-    border: none;
-    position: relative;
-    }
+	width: 2rem;
+	height: 2rem;
+	padding: 0.25rem;
+	background-color: rgb(29, 29, 31, 0.7);
+	backdrop-filter: saturate(180%) blur(20px);
+	border: none;
+	position: relative;
+}
 
-    .menu__icon span {
-        width: 1.5rem;
-        height: 1.5rem;
-        position: absolute;
-        top: calc(.25rem - 1px);
-        left: calc(.25rem - 1px);
-        transition: transform .1806s cubic-bezier(.04,.04,.12,.96);
-    }
+.menu__icon span {
+	width: 1.5rem;
+	height: 1.5rem;
+	position: absolute;
+	top: calc(0.25rem - 1px);
+	left: calc(0.25rem - 1px);
+	transition: transform 0.1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+}
 
-    .menu__icon span:before {
-        content: '';
-        width: 1.5rem;
-        height: .125rem;
-        background-color: #fff;
-        position: absolute;
-        left: 0;
-        transition: transform .1596s cubic-bezier(.52,.16,.52,.84) .1008s;
-    }
+.menu__icon span:before {
+	content: "";
+	width: 1.5rem;
+	height: 0.125rem;
+	background-color: #fff;
+	position: absolute;
+	left: 0;
+	transition: transform 0.1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.1008s;
+}
 
-    .menu__icon span:nth-child(1)::before {
-        top: .625rem;
-        transform: translateY(-3px);
-    }
+.menu__icon span:nth-child(1)::before {
+	top: 0.625rem;
+	transform: translateY(-3px);
+}
 
-    .menu__icon span:nth-child(2)::before {
-        bottom: .625rem;
-        transform: translateY(3px);
-    }
+.menu__icon span:nth-child(2)::before {
+	bottom: 0.625rem;
+	transform: translateY(3px);
+}
 
-    .menu__icon:hover :nth-child(1),
-    .menu__icon:hover :nth-child(2) {
-        transition: transform .3192s cubic-bezier(.04,.04,.12,.96) .1008s;
-    }
+.menu__icon:hover :nth-child(1),
+.menu__icon:hover :nth-child(2) {
+	transition: transform 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+}
 
-    .menu__icon:hover :nth-child(1)::before,
-    .menu__icon:hover :nth-child(2)::before {
-        transform: none;
-        transition: transform .1806s cubic-bezier(.04,.04,.12,.96);
-    }
+.menu__icon:hover :nth-child(1)::before,
+.menu__icon:hover :nth-child(2)::before {
+	transform: none;
+	transition: transform 0.1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+}
 
-    .menu__icon:hover :nth-child(1) {
-        transform: rotate(45deg) translateY(1px);
-    }
+.menu__icon:hover :nth-child(1) {
+	transform: rotate(45deg) translateY(1px);
+}
 
-    .menu__icon:hover :nth-child(2) {
-        transform: rotate(-45deg) translateY(-1px);
-    }
+.menu__icon:hover :nth-child(2) {
+	transform: rotate(-45deg) translateY(-1px);
+}
+
+ul {
+	display: none;
+}
+@media (min-width: 1024px) {
+	.Nav {
+		display: flex;
+		justify-content: space-between;
+		padding: 0 24px;
+	}
+
+	.menu__icon {
+		display: none;
+	}
+
+	.Nav > a {
+		display: flex;
+		justify-content: center;
+		gap: 8px;
+	}
+
+	ul {
+		display: flex;
+		gap: 12px;
+		height: 100%;
+		align-items: center;
+	}
+
+	li {
+		height: 100%;
+        line-height: 3;
+	}
+
+	li:hover {
+		background-color: #313c5a;
+	}
+}
