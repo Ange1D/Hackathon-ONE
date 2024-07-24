@@ -39,7 +39,7 @@ Para obtener token de autorización, en el ultimo endpoint **/api/v1/login** ing
 
 ### Frontend 
 
-Dentro de la carpeta "frontent" utilizar los siguientes comandos
+Dentro de la carpeta "frontend" utilizar los siguientes comandos
 
 ```sh
 npm install
