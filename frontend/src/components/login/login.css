@@ -32,11 +32,11 @@
     align-items: center;
 }
 
-.loginCred>h3{
+.loginCred>div>h3{
     margin: 8px 0px;
 }
 
-.loginCred>input{
+.loginCred>div>input{
     border-radius: 10px;
     border: none;
     background-color: aliceblue;
@@ -45,7 +45,7 @@
     font-size: larger;
 }
 
-.loginCred>label{
+.loginCred>div>label{
     margin: 10px 0px;
     display: flex;
     align-items: center;
@@ -58,6 +58,7 @@
 }
 
 .loginCred>button{
+    margin-top: 10px;
     height: 40px;
     width: 280px;
     color: #F9F9F9;

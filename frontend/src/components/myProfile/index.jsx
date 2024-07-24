@@ -7,12 +7,16 @@ const Profile = () => {
     return (
         <div>
         <h1>Profile</h1>
-        <div>
+        {currentUser ? (
+            <div>
             <p><strong>Username:</strong> {currentUser.username}</p>
             <p><strong>Email:</strong> {currentUser.email}</p>
-        </div>
+            </div>
+        ) : (
+            <p>You are not logged in.</p>
+        )}
         </div>
     );
-    };
+};
 
 export default Profile;

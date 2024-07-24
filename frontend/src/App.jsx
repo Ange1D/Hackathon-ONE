@@ -10,7 +10,7 @@ import TeamCreated from './components/teamCreated'
 import TeamDetails from './components/teamDetails'
 import TeamFinder from './components/teamFinder'
 import NotFound from './components/notFound'
-import CheckApiConnection from './components/Auth/checkApiConection.jsx'
+
 
 function App() {
   
@@ -22,7 +22,7 @@ function App() {
           <Route index element={<Home/>} />
           <Route path="login" element={<Login/>} />
           <Route path="register" element={<Register/>} />
-          <Route path='myProfile' element={<Profile/>}/>
+          <Route path='profile' element={<Profile/>}/>
           <Route path='newTeam' element={<NewTeam/>}/>
           <Route path='teamCreated' element={<TeamCreated/>}/>
           <Route path='teamDetails' element={<TeamDetails/>}/>
@@ -31,7 +31,6 @@ function App() {
         </Route>
       </Routes>
       <Footer/>
-      <CheckApiConnection/>
     </>
   );
 }

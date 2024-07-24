@@ -15,6 +15,6 @@
 
 @media (min-width: 1024px) {
 	:root {
-		background: linear-gradient(#333232 0%, #666363 70%, #999494 100%);
+		background: #333232;
 	}
 }

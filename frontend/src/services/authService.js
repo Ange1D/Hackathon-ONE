@@ -1,45 +1,55 @@
 import axios from 'axios';
 
-const API_URL = 'http://18.188.147.212/api/v1'; // Cambia esto a la URL de tu backend
+const API_URL = 'http://localhost:8080/api/v1'; // Cambia esto a la URL de tu backend
 
-const register = (username, email, password) => {
+const register = (username, password) => {
     return axios.post(`${API_URL}/user`, {
         username,
-        email,
         password,
     });
 };
 
-const login = (email, password) => {
+const login = (username, password) => {
     return axios.post(`${API_URL}/login`, {
-        email,
+        username,
         password,
     }).then(response => {
         if (response.data.token) {
-        localStorage.setItem('user', JSON.stringify(response.data));
+            localStorage.setItem('token', response.data.token);
         }
         return response.data;
     });
 };
 
 const logout = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem('token');
 };
 
 const getCurrentUser = () => {
-    return JSON.parse(localStorage.getItem('user'));
+    const token = localStorage.getItem('token');
+    if (!token) {
+        return null;
+    }
+
+    // Decodificar el token para obtener la información del usuario
+    try {
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        return { token, username: payload.username, password: payload.password };
+    } catch (error) {
+        return null;
+    }
 };
 
 const getAuthHeader = () => {
-    const user = getCurrentUser();
-    if (user && user.token) {
-        return { Authorization: `Bearer ${user.token}` };
+    const token = localStorage.getItem('token');
+    if (token) {
+        return { Authorization: 'Bearer ' + token };
     } else {
         return {};
     }
-    };
+};
 
-    export default {
+export default {
     register,
     login,
     logout,
